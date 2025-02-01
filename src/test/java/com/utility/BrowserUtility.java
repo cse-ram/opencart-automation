@@ -1,8 +1,11 @@
 package com.utility;
 
+import com.constants.Browser;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 
 public abstract class BrowserUtility {
 
@@ -14,6 +17,21 @@ public abstract class BrowserUtility {
 
     protected BrowserUtility(WebDriver driver){
         this.driver = driver;
+    }
+
+    protected BrowserUtility(String browser){
+        driver = switch (browser.toLowerCase()){
+            case "chrome" -> new ChromeDriver();
+            case "edge" -> new EdgeDriver();
+            default -> throw new IllegalArgumentException("Unsupported browser: " + browser);
+        };
+    }
+
+    protected BrowserUtility(Browser browser){
+        driver = switch (browser){
+            case CHROME -> new ChromeDriver();
+            case EDGE -> new EdgeDriver();
+        };
     }
 
     protected void goToApp(String url){
@@ -36,5 +54,11 @@ public abstract class BrowserUtility {
 
     public String getTitle(){
         return driver.getTitle();
+    }
+
+    public void quit(){
+        if(driver!=null){
+            driver.quit();
+        }
     }
 }

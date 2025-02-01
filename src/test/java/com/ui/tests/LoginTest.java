@@ -1,34 +1,33 @@
 package com.ui.tests;
 
+import com.constants.Browser;
 import com.ui.pages.HomePage;
 import com.ui.pages.MyAccountPage;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class LoginTest {
+public final class LoginTest {
 
-    private WebDriver driver;
+    HomePage homePage;
 
     @BeforeMethod
-    public void setup(){
-        driver = new ChromeDriver();
+    public void setup() {
+        homePage = new HomePage(Browser.EDGE);
     }
 
+
     @Test
-    public void testWithValidCredentials(){
-        MyAccountPage myAccountPage =  new HomePage(driver)
-                .navigateToLoginPage()
+    public void testWithValidCredentials() {
+        MyAccountPage myAccountPage = homePage.navigateToLoginPage()
                 .loginWithCredentials("ramkripal.ai@gmail.com", "dEKZkjdSEf@j4TG");
 
         Assert.assertEquals(myAccountPage.getTitle(), "My Account");
     }
 
     @AfterMethod
-    public void tearDown(){
-        driver.quit();
+    public void tearDown() {
+        homePage.quit();
     }
 }
