@@ -1,4 +1,4 @@
-package com.ui.pages;
+package com.libs.pages;
 
 import com.utility.BrowserUtility;
 import org.openqa.selenium.WebDriver;

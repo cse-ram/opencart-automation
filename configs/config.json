@@ -1,0 +1,13 @@
+{
+  "environments": {
+    "DEV": {
+      "url": "https://naveenautomationlabs.com/opencart/index.php",
+      "maxAttempt": 1
+    },
+
+    "QA": {
+      "url": "https://naveenautomationlabs.com/opencart/index.php",
+      "maxAttempt": 1
+    }
+  }
+}

@@ -1,7 +1,10 @@
-package com.ui.pages;
+package com.libs.pages;
 
 import com.constants.Browser;
+import com.constants.Env;
 import com.utility.BrowserUtility;
+import com.utility.EnvUtility;
+import com.utility.PropertyUtility;
 import org.openqa.selenium.By;
 
 public final class HomePage extends BrowserUtility {
@@ -11,7 +14,7 @@ public final class HomePage extends BrowserUtility {
 
     public HomePage(Browser browser) {
         super(browser);
-        goToApp("https://naveenautomationlabs.com/opencart/index.php");
+        goToApp(EnvUtility.getURL(Env.QA));
     }
 
     public LoginPage navigateToLoginPage() {

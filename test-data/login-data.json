@@ -1,0 +1,14 @@
+{
+  "data": [
+    {
+      "email": "ramkripal.ai@gmail.com",
+      "password": "dEKZkjdSEf@j4TG",
+      "type": "valid"
+    },
+    {
+      "email": "ramkripal.ai@gmail.com",
+      "password": "EKZkjdSEf@j4TG",
+      "type": "invalid"
+    }
+  ]
+}
